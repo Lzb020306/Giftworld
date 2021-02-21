@@ -1,0 +1,67 @@
+[{
+    "chart":"shu.png",
+    "name":"臭鼬",
+    "number":"1"
+},{
+    "chart":"tutu.png",
+    "name":"兔子",
+    "number":"1"
+},{
+    "chart":"lion.png",
+    "name":"狮子"
+},{
+    "chart":"bird.png",
+    "name":"鸟",
+    "number":"1"
+},{
+    "chart":"mao.png",
+    "name":"猫咪"
+},{
+    "chart":"dog.png",
+    "name":"小狗",
+    "number":"1"
+},{
+    "chart":"owl.png",
+    "name":"猫头鹰",
+    "number":"1"
+},{
+    "chart":"bear.png",
+    "name":"狗熊"
+},{
+    "chart":"yu.png",
+    "name":"蓝色鱼",
+    "number":"1"
+},{
+    "chart":"fish.png",
+    "name":"大鱼"
+},{
+    "chart":"Birds.png",
+    "name":"小鸟",
+    "number":"1"
+},{
+    "chart":"cat.png",
+    "name":"灰猫",
+    "number":"1"
+},{
+    "chart":"eagle.png",
+    "name":"鹰",
+    "number":"1"
+},{
+    "chart":"puppy.png",
+    "name":"狗",
+    "number":"1"
+},{
+    "chart":"rabbit.png",
+    "name":"兔子"
+},{
+    "chart":"frog.png",
+    "name":"蛤蟆"
+},{
+    "chart":"lioness.png",
+    "name":"雄狮"
+    ,"number":"1"
+},{
+    "chart":"deer.png",
+    "name":"鹿",
+    "number":"1"
+}]
