@@ -6,9 +6,17 @@
     <p class="item">这里是sloganXXXXXXXXXXXXXX</p>
     <div class="text-box">
       <p>+86</p>
-      <input type="text" @keyup.enter="search" @input="search($event)" />
-      <button v-if="disjunctor">22</button>
+      <input
+        type="text"
+        @keyup.enter="search"
+        @input="search($event)"
+        v-model="content"
+      />
+      <button v-if="disjunctor" @click="empty()">
+        <img :src="eliminate" />
+      </button>
     </div>
+    <button class="verification" @click="verification()">{{ lite }}</button>
   </div>
 </template>
 
@@ -17,7 +25,10 @@ export default {
   data() {
     return {
       imgs: require("../assets/liwu.png"),
+      eliminate: require("../assets/qinchu.png"),
       disjunctor: false,
+      content: "",
+      lite: "发送验证码",
     };
   },
   mounted() {},
@@ -27,9 +38,30 @@ export default {
       //方法一：直接通过event.data可以获得文本内容
       if (event.target.value != "") {
         this.disjunctor = true;
+        this.content = event.target.value;
       } else {
         this.disjunctor = false;
       }
+    },
+    empty() {
+      this.content = "";
+    },
+    verification() {
+      
+      let thet=this
+      let nub = 10;
+      let add=setInterval(function () {
+        nub--;
+        console.log(nub)
+        if (nub != 0) {
+          console.log(this)
+          thet.lite = nub+"秒";
+        } else {
+          clearInterval(add)
+          thet.lite = "发送成功";
+        }
+      },1000);
+      
     },
   },
 };
@@ -81,5 +113,28 @@ export default {
   margin-left: 40px;
   width: 97px;
   font-size: 15px;
+  outline: none;
+}
+.text-box button {
+  width: 0.4rem;
+  height: 0.4rem;
+  background-color: transparent;
+  margin-top: 0.42rem;
+  margin-left: 1rem;
+  outline: none;
+}
+.verification {
+  width: 5rem;
+  height: 1.12rem;
+  background: #2bb5fe;
+  border-radius: 0.32rem;
+  font-size: 0.32rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 0.44rem;
+  margin-left: 1.26rem;
+  margin-top: 1.4rem;
+  outline: none;
 }
 </style>
