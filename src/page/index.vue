@@ -34,8 +34,8 @@
 	}
 
 	.box {
-		width: 375px;
-		height: 812px;
+		width: 7.5rem;
+		height: 16.24rem;
 		background: #FFFFFF;
 	}
 

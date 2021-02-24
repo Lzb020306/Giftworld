@@ -1,16 +1,12 @@
 <template>
-  <div>
+  <div class="vft">
     <div class="vft-top">
       <img :src="imgs" />
     </div>
     <p class="item">这里是sloganXXXXXXXXXXXXXX</p>
     <div class="text-box">
       <p>+86</p>
-      <input
-        type="text"
-        @keyup.enter="search"
-        @input="search($event)"
-        v-model="content"
+      <input type="text" @keyup.enter="search" @input="search($event)" v-model="content"
       />
       <button v-if="disjunctor" @click="empty()">
         <img :src="eliminate" />
@@ -29,6 +25,7 @@ export default {
       disjunctor: false,
       content: "",
       lite: "发送验证码",
+      code: "",
     };
   },
   mounted() {},
@@ -47,21 +44,38 @@ export default {
       this.content = "";
     },
     verification() {
-      
-      let thet=this
-      let nub = 10;
-      let add=setInterval(function () {
-        nub--;
-        console.log(nub)
-        if (nub != 0) {
-          console.log(this)
-          thet.lite = nub+"秒";
-        } else {
-          clearInterval(add)
-          thet.lite = "发送成功";
-        }
-      },1000);
-      
+      if (/^1[3|4|5|8][0-9]\d{4,8}$/.test(this.content)) {
+        let thet = this;
+        let nub = 10;
+        let add = setInterval(function () {
+          nub--;
+          console.log(nub);
+          if (nub != 0) {
+            console.log(this);
+            thet.lite = nub + "秒";
+          } else {
+            clearInterval(add);
+            thet.lite = "发送成功";
+            let code = "";
+            //设置长度，这里看需求，我这里设置了4
+            let codeLength = 4;
+            //设置随机字符
+            let random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+            //循环codeLength 我设置的4就是循环4次
+            for (let i = 0; i < codeLength; i++) {
+              //设置随机数范围,这设置为0 ~ 36
+              var index = Math.floor(Math.random() * 9);
+              //字符串拼接 将每次随机的字符 进行拼接
+              code += random[index];
+            }
+            //将拼接好的字符串赋值给展示的code
+            this.code = code;
+            alert("验证码为" + this.code);
+          }
+        }, 1000);
+      } else {
+        alert("请输入正确电话号码");
+      }
     },
   },
 };
@@ -100,19 +114,19 @@ export default {
   display: flex;
 }
 .text-box p {
-  width: 28px;
-  height: 21px;
-  font-size: 15px;
+  width: 0.56rem;
+  height: 0.42rem;
+  font-size: 0.3rem;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #2d3142;
-  line-height: 21px;
+  line-height: 0.42rem;
   padding: 0.4rem 0 0 0.48rem;
 }
 .text-box input {
-  margin-left: 40px;
-  width: 97px;
-  font-size: 15px;
+  margin-left: 0.8rem;
+  width: 1.94rem;
+  font-size: 0.3rem;
   outline: none;
 }
 .text-box button {
