@@ -71,6 +71,8 @@ export default {
             //将拼接好的字符串赋值给展示的code
             this.code = code;
             alert("验证码为" + this.code);
+            // thet.$router.push('/land')
+            thet.$router.push(`/land?place=${this.code}`)
           }
         }, 1000);
       } else {
