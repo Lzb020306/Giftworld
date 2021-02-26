@@ -1,8 +1,6 @@
 <template>
   <div class="box">
-    
-    <land :password="code"></land>
-    <button @click="add()">222</button>
+    <land :password="code" @content="getcode"></land>
   </div>
 </template>
 <script>
@@ -10,15 +8,20 @@ import land from "../components/land-count";
 export default {
   data() {
     return {
-        code:this.$route.query.place
+      code: "",
     };
   },
- 
-  mounted() {},
+
+  mounted() {
+    let str = this.$route.query.place;
+    let arr = str.split("");
+    this.code = arr;
+  },
   methods: {
-      add(){
-          console.log(this.$route.query.place)
-      }
+    getcode(e){
+      console.log(e)
+      this.code=e
+    }
   },
   components: {
     land,
