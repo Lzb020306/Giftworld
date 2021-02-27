@@ -10,7 +10,7 @@ import Illustrated from '@/page/Illustrated'
 import my from '@/page/my'
 import verification from '@/page/verification'
 import land from '@/page/land'
-
+import proportion from '@/page/proportion'
 
 Vue.use(Router)
 
@@ -59,6 +59,11 @@ export default new Router({
     path: '/land',
     name: 'land',
     component: land
+  },
+  {
+    path: '/proportion',
+    name: 'proportion',
+    component: proportion
   }
 
 ]
