@@ -43,5 +43,6 @@ export default {
 .bottom{
     position: fixed;
     bottom: 0;
+    height: 1.6rem;
 }
 </style>

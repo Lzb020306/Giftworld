@@ -11,6 +11,7 @@ import my from '@/page/my'
 import verification from '@/page/verification'
 import land from '@/page/land'
 import proportion from '@/page/proportion'
+import gift from '@/page/gift'
 
 Vue.use(Router)
 
@@ -64,6 +65,11 @@ export default new Router({
     path: '/proportion',
     name: 'proportion',
     component: proportion
+  },
+  {
+    path: '/gift',
+    name: 'gift',
+    component: gift
   }
 
 ]
