@@ -12,6 +12,8 @@ import verification from '@/page/verification'
 import land from '@/page/land'
 import proportion from '@/page/proportion'
 import gift from '@/page/gift'
+import SalesOrder from '@/page/SalesOrder'
+import sell from '@/page/sell'
 
 Vue.use(Router)
 
@@ -70,6 +72,15 @@ export default new Router({
     path: '/gift',
     name: 'gift',
     component: gift
+  }, {
+    path: '/SalesOrder',
+    name: 'SalesOrder',
+    component: SalesOrder
+  }
+  , {
+    path: '/sell',
+    name: 'sell',
+    component: sell
   }
 
 ]
