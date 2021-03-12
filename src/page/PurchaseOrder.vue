@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import count from "../components/SalesOrder-count";
+import count from "../components/PurchaseOrder-count";
 export default {
   data() {
     return {
       open: false,
-      remind: require("../assets/zhifu.png"),
+      remind: require("../assets/goumai.png"),
       close: require("../assets/guanbi.png"),
     };
   },
@@ -31,7 +31,7 @@ export default {
       this.open = false;
       this.getTime();
     },
-     Destruction() {
+      Destruction() {
       this.open = false;
     },
     getTime() {
@@ -74,7 +74,7 @@ export default {
         seperator2 +
         second;
       // console.log(currentdate);
-      this.$router.push(`/sell?place=${currentdate}`)
+      this.$router.push(`/OrderDetails?place=${currentdate}`)
     },
   },
   components: {

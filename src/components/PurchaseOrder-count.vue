@@ -2,26 +2,16 @@
   <div style="background-color: #9c9eb9">
     <div class="sales-top" :style="setBackground">
       <img :src="retreat" />
-      <p>订单详情</p>
-      <div class="sales-box">
-        <img :src="success" />
-        <p>购买成功</p>
-      </div>
+      <p>确认出售订单</p>
     </div>
     <div class="sales-count">
       <div class="sales-commodity">
         <img :src="sample" />
         <h2>名称：X级XXX礼物</h2>
-        <p>金币 <span>7000</span></p>
+        <p>金币7000</p>
       </div>
       <div class="sales-information">
         <h3>订单信息</h3>
-        <ul style="border-bottom: 1px solid #000;padding-bottom: 0.4rem;width:5.76rem">
-          <li  v-for="(item, index) in orderNumber" :key="index">
-              <h2>{{ item.title }}</h2>
-            <p>{{ item.content }}</p>
-          </li>
-        </ul>
         <ul>
           <li v-for="(item, index) in details" :key="index">
             <h2>{{ item.title }}</h2>
@@ -32,6 +22,7 @@
       <p class="sales-count-Tips">
         温馨提示：礼物一旦交易成功，不支持任何形式退还
       </p>
+      <button @click="use">确认</button>
     </div>
   </div>
 </template>
@@ -42,7 +33,6 @@ export default {
     return {
       sample: require("../assets/fenzhen.png"),
       retreat: require("../assets/fanhui.png"),
-      success: require("../assets/chengong.png"),
       setBackground: {
         backgroundImage: "url(" + require("../assets/beimian.png") + ")",
         backgroundRepeat: "repeat",
@@ -52,46 +42,34 @@ export default {
         { title: "我的账号:", content: "xxx" },
         { title: "会员等级:", content: "Lv.3" },
         { title: "交易类型:", content: "出售" },
-        { title: "预计支出:", content: "1000000钻石" },
+        { title: "预计支出:", content: "6钻石=6元" },
         { title: "今日汇率:", content: "1000金币=1钻石=1元" },
-      ],
-      orderNumber: [
-        { title: "订单编号:", content: "473829837467892830129384940" },
-        { title: "付款时间:", content: this.time },
-        { title: "实际收益:", content: "1000000钻石=100万元" },
+        { title: "交易手续费:", content: "40%" },
       ],
     };
   },
   mounted() {},
   methods: {
-    use() {
-      this.$emit("transmission");
-      this.getTime();
-    },
-  },
-  props: {
-    time: {
-      type: String,
-      default: "",
-    },
+    use(){
+     this.$emit("transmission");
+    }
   },
 };
 </script>
 
 <style  scoped>
 .sales-top {
-  height: 4rem;
+  height: 2.96rem;
   width: 7.5rem;
+  display: flex;
 }
 .sales-top img {
   width: 0.4rem;
   height: 0.4rem;
   margin-left: 0.68rem;
   margin-top: 1.18rem;
-  
 }
 .sales-top p {
-  display: initial;
   width: 2.2rem;
   height: 0.5rem;
   font-size: 0.36rem;
@@ -99,32 +77,23 @@ export default {
   font-weight: 500;
   color: #ffffff;
   line-height: 0.5rem;
-  margin-left: 1.94rem;
+  margin-left: 1.58rem;
   margin-top: 1.14rem;
-}
-.sales-box {
-  display: flex;
-}
-.sales-box p {
-  display: inline-block;
-  font-size: 0.32rem;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #ffffff;
-  line-height: 0.44rem;
-  margin-left: 0.24rem;
-  margin-top: 0.38rem;
-}
-.sales-box img {
-  margin-top: 0.3rem;
-  margin-left: 2.68rem;
-  height: 0.6rem;
-  width: 0.6rem;
 }
 .sales-count {
   position: absolute;
   left: 0.56rem;
-  top: 3.28rem;
+  top: 2.28rem;
+}
+.sales-count button {
+  width: 5rem;
+  height: 1.12rem;
+  background: #2bb5fe;
+  border-radius: 0.32rem;
+  color: #fff;
+  margin-left: 0.7rem;
+  margin-top: 3.2rem;
+  outline: none;
 }
 .sales-count-Tips {
   width: 5.6rem;
@@ -135,7 +104,7 @@ export default {
   color: #9c9eb9;
   line-height: 0.34rem;
   margin-left: 0.4rem;
-  margin-top: 1.62rem;
+  margin-top: 0.6rem;
 }
 .sales-commodity {
   width: 6.38rem;
@@ -172,19 +141,10 @@ export default {
   margin-left: 4.46rem;
   margin-top: 1.84rem;
 }
-.sales-commodity p span {
-  display: inline-block;
-  margin-left: 0.08rem;
-  font-size: 0.32rem;
-  font-family: PingFangSC-Medium, PingFang SC;
-  font-weight: 500;
-  color: #2d3142;
-  line-height: 0.44rem;
-}
 
 .sales-information {
   width: 6.38rem;
-  height: 6.72rem;
+  height: 4.94rem;
   background: #ffffff;
   box-shadow: 0.4rem 0.4rem 0.4rem 0.4rem rgba(64, 117, 205, 0.08);
   border-radius: 0.4rem;
