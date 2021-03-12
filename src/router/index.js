@@ -14,6 +14,7 @@ import proportion from '@/page/proportion'
 import gift from '@/page/gift'
 import SalesOrder from '@/page/SalesOrder'
 import sell from '@/page/sell'
+import purchase from '@/page/purchase'
 
 Vue.use(Router)
 
@@ -82,6 +83,12 @@ export default new Router({
     name: 'sell',
     component: sell
   }
+  , {
+    path: '/purchase',
+    name: 'purchase',
+    component: purchase
+  }
 
 ]
 })
+
