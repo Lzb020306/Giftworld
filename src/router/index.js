@@ -8,6 +8,7 @@ import envelopes from '@/page/envelopes'
 import Warehouse from '@/page/Warehouse'
 import Illustrated from '@/page/Illustrated'
 import my from '@/page/my'
+import mystuff from '@/page/mystuff'
 import verification from '@/page/verification'
 import land from '@/page/land'
 import proportion from '@/page/proportion'
@@ -57,6 +58,10 @@ export default new Router({
       path: '/my',
       name: 'my',
       component: my
+    }, {
+      path: '/mystuff',
+      name: 'mystuff',
+      component: mystuff
     }, {
       path: '/verification',
       name: 'verification',
