@@ -19,6 +19,8 @@ import purchase from '@/page/purchase'
 import PurchaseOrder from '@/page/PurchaseOrder'
 import OrderDetails from '@/page/OrderDetails'
 import history from '@/page/history'
+import income from '@/page/income'
+
 Vue.use(Router)
 
 export default new Router({
@@ -104,6 +106,11 @@ export default new Router({
       path: '/history',
       name: 'history',
       component: history
+    }
+    , {
+      path: '/income',
+      name: 'income',
+      component: income
     }
   ]
 })
