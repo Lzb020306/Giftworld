@@ -20,6 +20,36 @@
           <h1>第一阶段x1.0倍加速<img :src="remind" /></h1>
         </div>
       </div>
+      <div class="income-Cumulative-progressBar">
+        <div></div>
+      </div>
+      <p class="income-Cumulative-introduce">
+        已解锁10%，解锁后XX元现金自动存入钱包x1.0倍加速
+      </p>
+    </div>
+    <div class="income-total">
+      <h2>今日好友给我赚钱</h2>
+      <ul>
+        <li v-for="(item, index) in Price" :key="index">
+          <p :style="item.color">{{ item.number }}</p>
+          <span>{{ item.content }}</span>
+        </li>
+      </ul>
+      <button><img :src="logo" /> 1.0倍加速</button>
+    </div>
+    <div class="income-people">
+      <div class="income-people-top">
+        <h2>邀请我的人</h2>
+        <p>联系他 <img :src="image"></p>
+      </div>
+      <div class="income-people-count">
+         <img :src="imgs">
+      <div>
+        <h1>他邀请了13人</h1>
+        <p>累计收益99.54元</p>
+      </div>
+      </div>
+     
     </div>
   </div>
 </template>
@@ -31,12 +61,37 @@ export default {
   data() {
     return {
       imgs: require("../assets/gougou.png"),
+      logo: require("../assets/huo.png"),
+      image:require("../assets/jinru.png"),
       setBackground: {
         backgroundImage: "url(" + require("../assets/jinru.png") + ")",
         backgroundRepeat: "repeat",
         backgroundSize: "cover",
       },
       remind: require("../assets/wen.png"),
+      Price: [
+        {
+          number: "1500.00",
+          content: "合计",
+          color: {
+            color: "#FF1212",
+          },
+        },
+        {
+          number: "800.00",
+          content: "徒弟贡献",
+          color: {
+            color: "#2D3142",
+          },
+        },
+        {
+          number: "700.00",
+          content: "徒孙贡献",
+          color: {
+            color: "#2D3142",
+          },
+        },
+      ],
     };
   },
   mounted() {},
@@ -190,5 +245,152 @@ export default {
   height: 0.26rem;
   padding-left: 0.04rem;
   margin-top: 0.06rem;
+}
+.income-Cumulative-progressBar {
+  width: 5.98rem;
+  height: 0.2rem;
+  background: #f4f4f4;
+  border-radius: 0.12rem;
+  margin-top: 0.48rem;
+  margin-left: 0.4rem;
+}
+.income-Cumulative-progressBar div {
+  width: 30px;
+  height: 10px;
+  background: #2bb5fe;
+  border-radius: 6px;
+}
+.income-Cumulative-introduce {
+  width: 5.9rem;
+  height: 0.32rem;
+  font-size: 0.225em;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 0.32rem;
+  margin-left: 0.48rem;
+  margin-top: 0.2rem;
+}
+.income-total {
+  width: 6.78rem;
+  height: 2.88rem;
+  background: #ffffff;
+  box-shadow: 0px 0.4rem 0.4rem 0px rgba(64, 117, 205, 0.08);
+  border-radius: 0.4rem;
+  margin-top: 0.2rem;
+  overflow: hidden;
+  position: relative;
+}
+.income-total h2 {
+  font-size: 0.32rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2d3142;
+  line-height: 0.44rem;
+  margin: 0.4rem;
+}
+.income-total ul {
+  display: flex;
+  margin-left: 0.36rem;
+  margin-top: 0.6rem;
+}
+.income-total ul li {
+  width: 2rem;
+  margin-left: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /*由于flex-direction: column，因此align-items代表的是水平方向*/
+  justify-content: center;
+}
+.income-total ul li p {
+  width: 100%;
+  font-size: 0.4rem;
+  font-family: BarlowCondensed-SemiBold, BarlowCondensed;
+  font-weight: 600;
+  line-height: 0.62rem;
+  text-align: center;
+}
+.income-total ul li span {
+  font-size: 13px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #999999;
+  line-height: 18px;
+}
+.income-total button {
+  background-color: #2bb5fe;
+  display: block;
+  width: 1.62rem;
+  height: 0.44rem;
+  border-radius: 0.4rem 0.4rem 0.4rem 0;
+  font-size: 0.22rem;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 0.34rem;
+  outline: none;
+  position: absolute;
+  top: 52px;
+  left: 68px;
+}
+.income-total button img {
+  width: 10px;
+  height: 10px;
+  /* margin: 5px 5px 5px 8px; */
+}
+.income-people {
+  width: 6.78rem;
+  height: 2.6rem;
+  background: #ffffff;
+  box-shadow: 0px 0.4rem 0.4rem 0px rgba(64, 117, 205, 0.08);
+  border-radius: 0.4rem;
+  margin-top: 0.2rem;
+  overflow: hidden;
+}
+.income-people-top {
+  display: flex;
+  margin-top: 24px;
+  margin-left: 20px;
+}
+.income-people-top h2 {
+  font-size: 0.32rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2d3142;
+  line-height: 0.44rem;
+}
+.income-people-top p{
+  font-size: 12px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 17px;
+  margin-top: 0.06rem;
+  margin-left: 3.26rem;
+  display: flex;
+}
+.income-people-top p img{
+  width: 0.4rem;
+  height: 0.4rem;
+}
+.income-people-count{
+  display: flex;
+  margin-left: 0.4rem;
+  margin-top: 0.36rem;
+}
+.income-people-count img{
+  width: 0.76rem;
+  margin-top: 2px;
+  height: 0.76rem;
+}
+.income-people-count div{
+  margin-left: 0.2rem;
+}
+.income-people-count div p,h1{
+  font-size: 0.26rem;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 400;
+color: #2D3142;
+line-height: 0.4rem;
 }
 </style>
