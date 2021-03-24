@@ -21,6 +21,8 @@ import OrderDetails from '@/page/OrderDetails'
 import history from '@/page/history'
 import income from '@/page/income'
 import record from '@/page/record'
+import invitation from '@/page/invitation'
+
 Vue.use(Router)
 
 export default new Router({
@@ -117,5 +119,11 @@ export default new Router({
       name: 'record',
       component: record
     }
+    , {
+      path: '/invitation',
+      name: 'invitation',
+      component: invitation
+    }
   ]
 })
+

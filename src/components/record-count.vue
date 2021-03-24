@@ -9,11 +9,7 @@
       <li>徒孙·10</li>
       <li>未激活</li>
     </ul>
-    <div
-      class="record-information"
-      v-for="(item, index) in ranking"
-      :key="index"
-    >
+    <div class="record-information" v-for="(item, index) in ranking" :key="index">
       <img :src="item.headPortrait" />
       <div class="personal">
         <h2>
@@ -180,11 +176,11 @@ export default {
   width: 0.32rem;
   height: 0.32rem;
 }
-.remind{
-    display: flex;
-    position: fixed;
-    bottom: 74px;
-    left: 78px;
+.remind {
+  display: flex;
+  position: fixed;
+  bottom: 74px;
+  left: 78px;
 }
 .remind h1 {
   font-size: 0.24rem;
