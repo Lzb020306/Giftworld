@@ -3,10 +3,10 @@
     <div class="invitation-top">
       <img :src="imgs" />
       <p>我的邀请码</p>
-      <button >我的师傅</button>
+      <button @click="pupil">我的师傅</button>
     </div>
     <p class="code" @click="Press">783166</p>
-    <button class="invitation-but">邀请好友 </button>
+    <button class="invitation-but" @click="disappear">邀请好友</button>
   </div>
 </template>
 
@@ -19,17 +19,24 @@ export default {
   },
   mounted() {},
   methods: {
-      Press(){
-          this.$emit("Destruction",`关闭弹窗`);
-      }
+    Press() {
+      this.$emit("Destruction", `关闭弹窗`);
+    },
+    pupil() {
+      console.log(1)
+       this.$emit("into", `关闭`);
+    },
+    disappear(){
+      this.$emit("loading", `关闭`);
+    }
   },
 };
 </script>
 
 <style  scoped>
-.count{
-    width: 7.5rem;
-    height: 16.2rem;
+.count {
+  width: 7.5rem;
+  height: 16.2rem;
 }
 .invitation-top {
   display: flex;
@@ -56,16 +63,16 @@ export default {
   text-align: center;
   margin-top: 0.4rem;
 }
-.invitation-but{
-width: 6.4rem;
-height: 1.12rem;
-border-radius:0.52rem;
-background-color: #2BB5FE;
-color: #fff;
-font-size: 0.3rem;
-position: absolute;
-left: 0.56rem;
-bottom: 0.6rem;
-outline: none;
+.invitation-but {
+  width: 6.4rem;
+  height: 1.12rem;
+  border-radius: 0.52rem;
+  background-color: #2bb5fe;
+  color: #fff;
+  font-size: 0.3rem;
+  position: absolute;
+  left: 0.56rem;
+  bottom: 0.6rem;
+  outline: none;
 }
 </style>
