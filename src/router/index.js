@@ -23,6 +23,7 @@ import income from '@/page/income'
 import record from '@/page/record'
 import invitation from '@/page/invitation'
 import wallet from '@/page/wallet'
+import personalinformation from '@/page/personalinformation'
 
 Vue.use(Router)
 
@@ -129,6 +130,11 @@ export default new Router({
       path: '/wallet',
       name: 'wallet',
       component: wallet
+    }
+    , {
+      path: '/personalinformation',
+      name: 'personalinformation',
+      component: personalinformation
     }
   ]
 })
