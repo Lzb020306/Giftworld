@@ -12,14 +12,20 @@ import count from "../components/proportion-count.vue";
 import bottom from "../components/bottom.vue";
 export default {
   data() {
-    return {};
+    return {
+      aeebs: false,
+    };
   },
   mounted() {},
-  methods: {},
+  methods: {
+    aeeds() {
+      this.aeebs = true;
+    },
+  },
   components: {
     top,
     count,
-    bottom
+    bottom,
   },
 };
 </script>
@@ -30,19 +36,19 @@ export default {
   height: 16.24rem;
   background: #f4f6fa;
 }
-.top{
-    position: fixed;
-    top: 0;
-    left: 0;
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
-.count{
-    position: fixed;
-    top: 3rem;
-    left: 0.56rem;
+.count {
+  position: fixed;
+  top: 3rem;
+  left: 0.56rem;
 }
-.bottom{
-    position: fixed;
-    bottom: 0;
-    height: 1.6rem;
+.bottom {
+  position: fixed;
+  bottom: 0;
+  height: 1.6rem;
 }
 </style>

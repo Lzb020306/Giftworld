@@ -1,25 +1,37 @@
-[{
-    "logo":"yaoqingma.png",
-    "title":"填写邀请码",
-    "Icon":"daohang.png"
-},{
-    "logo":"yaoshi.png",
-    "title":"我的邀请码",
-    "Icon":"daohang.png"
-},{
-    "logo":"zhuanzhang.png",
-    "title":"我的交易",
-    "Icon":"daohang.png"
-},{
-    "logo":"yaoqingma.png",
-    "title":"发布历史",
-    "Icon":"daohang.png"
-},{
-    "logo":"llishi.png",
-    "title":"消息",
-    "Icon":"daohang.png"
-},{
-    "logo":"bangzhu.png",
-    "title":"帮助中心",
-    "Icon":"daohang.png"
-}]
+[
+    {
+        "logo": "yaoqingma.png",
+        "title": "填写邀请码",
+        "Icon": "daohang.png",
+        "url": ""
+    },
+    {
+        "logo": "yaoshi.png",
+        "title": "我的邀请码",
+        "Icon": "daohang.png",
+        "url":"/invitation"
+    },
+    {
+        "logo": "zhuanzhang.png",
+        "title": "我的交易",
+        "Icon": "daohang.png",
+        "url": "/detailed"
+    },
+    {
+        "logo": "yaoqingma.png",
+        "title": "发布历史",
+        "Icon": "daohang.png"
+    },
+    {
+        "logo": "llishi.png",
+        "title": "消息",
+        "Icon": "daohang.png",
+        "url":"/letter"
+    },
+    {
+        "logo": "bangzhu.png",
+        "title": "帮助中心",
+        "Icon": "daohang.png",
+        "url":"/help"
+    }
+]

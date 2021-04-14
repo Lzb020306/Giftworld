@@ -11,10 +11,10 @@
         </p>
       </div>
       <p class="myLogo">
-        <img :src="imges" />
+        <img :src="imges" @click="erweima" />
       </p>
       <span class="myImg">
-        <img :src="imgrs" />
+        <img :src="imgrs" @click="shezhi" />
       </span>
     </div>
     <div class="myDalancePanel" :style="setBackground">
@@ -40,7 +40,11 @@
     </div>
     <div class="myList">
       <ul>
-        <li v-for="(item, index) in ranking" :key="index">
+        <li
+          v-for="(item, index) in ranking"
+          :key="index"
+          @click="navto(item.url)"
+        >
           <img :src="item.logo" />
           <span>{{ item.title }}</span>
           <p>
@@ -48,6 +52,21 @@
           </p>
         </li>
       </ul>
+    </div>
+    <div class="myWrite" v-if="Vanish">
+      <div class="write">
+        <div class="write-box">
+          <img :src="write" />
+        </div>
+        <p>填写邀请码</p>
+        <div class="write-enter">
+          <img :src="please" />
+          <span></span>
+          <input type="text" placeholder="请输入邀请码" v-model="list" />
+        </div>
+        <button @click="aee">确认</button>
+        <div class="warning" v-if="appear">{{ warning }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -57,6 +76,12 @@ export default {
   data() {
     return {
       ranking: [],
+      list: "",
+      Vanish: false,
+      warning: "",
+      appear: false,
+      please: require("../assets/yaoqingma.png"),
+      write: require("../assets/yanzhenmatubiao.png"),
       imgs: require("../assets/tou.png"),
       imges: require("../assets/erweima.png"),
       imgrs: require("../assets/shezhi.png"),
@@ -88,7 +113,39 @@ export default {
         alert("网络错误，不能访问");
       });
   },
-  methods: {},
+  methods: {
+    aee() {
+      if (this.list == "") {
+        this.warning = "输入验证码为空";
+        this.appear = true;
+      } else if (this.list != "123456") {
+        this.warning = "输入验证码错误";
+        this.appear = true;
+      } else {
+        this.warning = "输入验证码正确";
+        this.appear = true;
+        setTimeout(() => {
+          this.Vanish = false;
+        }, 3000);
+      }
+      setTimeout(() => {
+        this.appear = false;
+      }, 2000);
+    },
+    navto(e) {
+      if (e == "") {
+        this.Vanish = true;
+      }else{
+        this.$router.push(e);
+      }
+    },
+    shezhi() {
+      this.$router.push("/setup");
+    },
+    erweima() {
+      this.$router.push("/Invitationcode");
+    },
+  },
 };
 </script>
 
@@ -281,5 +338,88 @@ export default {
   line-height: 0.34rem;
   margin-top: 0.34rem;
   margin-left: 0.4rem;
+}
+.myWrite {
+  width: 7.5rem;
+  height: 16.24rem;
+  background: rgba(86, 87, 88, 0.5);
+  position: absolute;
+  top: 0;
+}
+.write {
+  width: 6.38rem;
+  height: 8.2rem;
+  background: #2bb5fe;
+  border-radius: 0.6rem;
+  margin-top: 3.4rem;
+  margin-left: 0.56rem;
+  position: relative;
+}
+.write p {
+  font-size: 0.6rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 0.84rem;
+  margin-top: 0.2rem;
+  margin-left: 1.66rem;
+}
+.write-box img {
+  width: 3.06rem;
+  height: 2.9rem;
+  margin-top: -0.38rem;
+  margin-left: 1.66rem;
+}
+.write-enter {
+  width: 5.58rem;
+  height: 1.12rem;
+  background: #f4f6fa;
+  border-radius: 0.32rem;
+  opacity: 0.6981;
+  margin-top: 0.4rem;
+  margin-left: 0.4rem;
+  display: flex;
+}
+.write-enter img {
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.36rem;
+  margin-left: 0.4rem;
+}
+.write-enter span {
+  width: 0.02rem;
+  height: 0.64rem;
+  background-color: #979797;
+  margin-left: 0.28rem;
+  margin-top: 0.24rem;
+}
+.write-enter input {
+  padding-left: 0.4rem;
+  outline: none;
+}
+.write button {
+  width: 4.38rem;
+  height: 1.12rem;
+  background: #ffffff;
+  border-radius: 0.32rem;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  outline: none;
+}
+.warning {
+  width: 4.58rem;
+  height: 0.72rem;
+  background: rgba(23, 100, 141, 0.5);
+  border-radius: 0.36rem;
+  position: absolute;
+  top: 3.4rem;
+  left: 0.9rem;
+  font-size: 0.26rem;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #ffffff;
+  line-height: 0.36rem;
+  text-align: center;
+  line-height: 0.72rem;
 }
 </style>

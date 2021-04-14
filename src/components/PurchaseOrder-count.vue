@@ -13,7 +13,7 @@
       <div class="sales-information">
         <h3>订单信息</h3>
         <ul>
-          <li v-for="(item, index) in details" :key="index">
+          <li v-for="(item, index) in details"  :key="index">
             <h2>{{ item.title }}</h2>
             <p>{{ item.content }}</p>
           </li>
@@ -52,7 +52,7 @@ export default {
   methods: {
     use(){
      this.$emit("transmission");
-    }
+    },
   },
 };
 </script>

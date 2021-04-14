@@ -34,6 +34,7 @@ export default {
 
 <style scoped>
 .box{
+    height: 17.82rem;
     background-color: #F1F3F9;
 }
     .bottom{
@@ -43,7 +44,7 @@ export default {
     }
     .count{
         margin-left: 18px;
-        position: fixed;
+        position: absolute;
         top: 2.62rem;
     }
 </style>

@@ -52,10 +52,16 @@
           2、提现手续费为提现金额的3%，最低0.1元；首次提现免费
         </p>
       </div>
-      <button>立刻提现</button>
+      <button @click="feel">立刻提现</button>
     </div>
-    <div class="cover">
-      
+    <div class="cover" v-if="Popup" @click="feell">
+      <div class="cover-box">
+        <div class="cover-top">
+          <img :src="success" />
+          <p>提现成功</p>
+        </div>
+        <h2>24小时内发送到微信零钱</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +70,8 @@
 export default {
   data() {
     return {
+      Popup:false,
+      success: require("../assets/wancheng.png"),
       imgs: require("../assets/fanhui.png"),
       money: require("../assets/rmb.png"),
       WeChat: require("../assets/weixin.png"),
@@ -111,12 +119,18 @@ export default {
       });
       this.UnitPrice[e].active = true;
     },
+    feel(){
+      this.Popup=true
+    },
+    feell(){
+      this.Popup=false
+    }
   },
   components: {},
 };
 </script>
 
-<style >
+<style>
 .Withdrawal {
   width: 375px;
   height: 812px;
@@ -336,5 +350,44 @@ export default {
   margin-top: 1.34rem;
   margin-left: 1.26rem;
   outline: none;
+}
+.cover {
+  width: 7.5rem;
+  height: 16.24rem;
+  background: rgba(86, 87, 88, 0.5);
+  position: absolute;
+  top: 0;
+}
+.cover-box {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: #ffffff;
+  border-radius: 0.6rem;
+  margin-top: 5.2rem;
+  margin-left: 1.5rem;
+}
+.cover-top img {
+  width: 0.8rem;
+  height: 0.8rem;
+  margin-left: 1.86rem;
+  margin-top: 1.14rem;
+}
+.cover-top p {
+  font-size: 0.32rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #2d3142;
+  line-height: 0.44rem;
+  margin-left: 1.6rem;
+  /* margin-top: 0.2rem; */
+}
+.cover-box h2 {
+  font-size: 0.24rem;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #4c5980;
+  line-height: 0.34rem;
+  margin-top: 1.2rem;
+  margin-left: 0.88rem;
 }
 </style>

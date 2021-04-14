@@ -1,7 +1,7 @@
 <template>
   <div>
     <my></my>
-    <bottom class="bottom"></bottom>
+    <bottom class="bottom" v-if="but"></bottom>
   </div>
 </template>
 
@@ -10,7 +10,9 @@ import my from "../components/my-count";
 import bottom from "../components/bottom";
 export default {
   data() {
-    return {};
+    return {
+      but:false
+    };
   },
   mounted() {},
   methods: {},

@@ -53,7 +53,7 @@ export default {
 
 <style  scoped>
 .count-box {
-  margin-top: 8px;
+  margin-top: 0.16rem;
   width: 6.38rem;
   height: 2rem;
   background: #ffffff;
@@ -68,10 +68,10 @@ export default {
   margin: 0.2rem;
 }
 .my{
-    width: 42px;
-    height: 21px;
+    width: 0.84rem;
+    height: 0.42rem;
     position: absolute;
-    top: 6px;
+    top: 0.12rem;
 }
 .count-box h2 {
   flex: 100%;
@@ -94,30 +94,30 @@ export default {
   display: flex;
 }
 .count-box-bottom-contentr img {
-  width: 24px;
-  height: 24px;
-  margin: 32px 0 0 4px;
+  width: 0.48rem;
+  height: 0.48rem;
+  margin: 0.64rem 0 0 0.08rem;
 }
 .count-box-bottom-contentr p {
-  font-size: 16px;
+  font-size: 0.32rem;
   font-family: PingFangSC-Semibold, PingFang SC;
   font-weight: 600;
   color: #4c5980;
-  line-height: 22px;
-  margin: 33px 0 0 8px;
+  line-height: 0.44rem;
+  margin: 33px 0 0 0.16rem;
 }
 .count-box-bottom-contentr button {
-  width: 60px;
-  height: 28px;
+  width: 1.2rem;
+  height: 0.56rem;
   background-color: #fda9b2;
-  border-radius: 8px;
+  border-radius: 0.16rem;
   /* opacity: 0.2; */
-  font-size: 13px;
+  font-size: 0.26rem;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #f15867;
-  line-height: 18px;
-  margin-left: 74px;
-  margin-top: 30px;
+  line-height: 0.36rem;
+  margin-left: 1.48rem;
+  margin-top: 0.6rem;
 }
 </style>

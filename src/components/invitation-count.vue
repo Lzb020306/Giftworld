@@ -1,7 +1,7 @@
 <template>
   <div class="count">
     <div class="invitation-top">
-      <img :src="imgs" />
+      <img :src="imgs" @click="back" />
       <p>我的邀请码</p>
       <button @click="pupil">我的师傅</button>
     </div>
@@ -23,12 +23,15 @@ export default {
       this.$emit("Destruction", `关闭弹窗`);
     },
     pupil() {
-      console.log(1)
-       this.$emit("into", `关闭`);
+      console.log(1);
+      this.$emit("into", `关闭`);
     },
-    disappear(){
+    disappear() {
       this.$emit("loading", `关闭`);
-    }
+    },
+    back() {
+      this.$router.go(-1);
+    },
   },
 };
 </script>

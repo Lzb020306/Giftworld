@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <p v-for="(item, index) in this.msg" :key="index" :class="colorList[index]">
+    <p v-for="(item, index) in msg" :key="index" :class="colorList[index]">
       <img :src="item.Image" />
     </p>
   </div>
