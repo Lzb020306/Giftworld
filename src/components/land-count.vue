@@ -131,6 +131,10 @@ export default {
   margin: 1.2rem 0 0 0.58rem;
   display: flex;
 }
+.text-box li{
+    list-style-type: none;
+    display: flex;
+}
 .text-box-count {
   width: 1.16rem;
   height: 1.2rem;

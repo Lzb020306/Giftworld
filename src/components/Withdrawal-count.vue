@@ -130,7 +130,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .Withdrawal {
   width: 375px;
   height: 812px;

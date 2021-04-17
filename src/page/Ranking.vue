@@ -33,7 +33,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .box {
   width: 375px;
   height: 812px;
@@ -75,5 +75,6 @@ export default {
   color:#ffffff;
   font-size: 0.32rem;
   margin-left: 1.26rem;
+  outline: none;
 }
 </style>

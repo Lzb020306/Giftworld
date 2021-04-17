@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="myTop">
-      <img :src="imgs" />
+      <img :src="imgs" @click="land"/>
       <div class="myTopCount">
         <h2>游客007</h2>
         <p>
@@ -145,6 +145,9 @@ export default {
     erweima() {
       this.$router.push("/Invitationcode");
     },
+    land(){
+      this.$router.push("/land")
+    }
   },
 };
 </script>
@@ -235,6 +238,9 @@ export default {
 .myList {
   margin-top: 0.54rem;
 }
+.myList ul li {
+  display: flex;
+}
 .myList ul li span {
   width: 1.64rem;
   height: 0.44rem;
@@ -247,14 +253,19 @@ export default {
   margin-left: 0.44rem;
 }
 .myList ul li img {
+  width: 0.4rem;
+  height: 0.4rem;
   margin-top: 0.28rem;
   margin-left: 0.68rem;
 }
 .myList ul li p {
+display: flex;
   margin-left: 3.26rem;
 }
 .myList ul li p img {
-  margin: 0;
+  margin:  0;
+  margin-top: 0.28rem;
+  margin-bottom: 16px;
 }
 .myDalancePanel-top {
   display: flex;

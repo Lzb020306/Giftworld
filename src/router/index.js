@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import index from '@/page/index'
 import Ranking from '@/page/Ranking'
-import chart from '@/page/WorldChartShow'
+// import chart from '@/page/WorldChartShow'
 import bonus from '@/page/bonus'
 import envelopes from '@/page/envelopes'
 import Warehouse from '@/page/Warehouse'
@@ -30,6 +30,7 @@ import Invitationcode from '@/page/Invitationcode'
 import detailed from '@/page/detailed'
 import letter from '@/page/letter'
 import help from '@/page/help'
+import sellt from '@/page/sellt'
 
 Vue.use(Router)
 
@@ -44,11 +45,7 @@ export default new Router({
     name: 'Ranking',
     component: Ranking
   },
-  {
-    path: '/chart',
-    name: 'chart',
-    component: chart
-  },
+ 
   {
     path: '/bonus',
     name: 'bonus',
@@ -165,6 +162,11 @@ export default new Router({
     path: '/help',
     name: 'help',
     component: help
+  }
+  , {
+    path: '/sellt',
+    name: 'sellt',
+    component: sellt
   }
   ]
 })

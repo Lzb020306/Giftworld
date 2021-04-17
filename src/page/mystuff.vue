@@ -1,35 +1,28 @@
 <template>
   <div>
-    <count></count>
-    <but class="botton"></but>
+    <my></my>
+    <bottom class="bottom"></bottom>
   </div>
 </template>
 
 <script>
-import but from "../components/bottom.vue";
-import Count from "../components/index-count.vue";
-
-
+import my from "../components/my-2count";
+import bottom from "../components/bottom";
 export default {
   data() {
     return {};
   },
+  mounted() {},
+  methods: {},
   components: {
-    but,
-    Count
+    my,
+    bottom,
   },
 };
 </script>
 
-<style >
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-}
-
-
-.botton {
+<style  scoped>
+.bottom {
   left: 0;
   width: 100%;
   height: 80px;
@@ -39,5 +32,4 @@ export default {
   position: fixed;
   bottom: 0;
 }
-
 </style>

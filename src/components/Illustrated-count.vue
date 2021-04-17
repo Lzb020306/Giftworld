@@ -2,7 +2,7 @@
   <div>
     <div class="illustrated">
       <div class="illustrated-left">
-        <img :src="imgs" />
+        <img :src="imgs" @click="back"/>
         <p>全球分红礼物</p>
       </div>
       <div class="illustrated-right">
@@ -25,7 +25,11 @@ export default {
     };
   },
   mounted() {},
-  methods: {},
+  methods: { 
+    back(){
+      this.$router.go(-1);
+    }
+  },
 };
 </script>
 

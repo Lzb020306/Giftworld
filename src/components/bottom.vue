@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .bottonbox ul {
   display: flex;
   margin: 0;

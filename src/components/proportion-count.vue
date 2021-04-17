@@ -8,7 +8,7 @@
         <div class="count-box-bottom-contentr">
           <img :src="item.currency" />
           <p>{{ item.number }}</p>
-          <button>{{ item.state }}</button>
+          <button @click="back">{{ item.state }}</button>
         </div>
       </div>
     </div>
@@ -47,7 +47,11 @@ export default {
         alert("网络错误，不能访问");
       });
   },
-  methods: {},
+  methods: {
+    back(){
+      this.$router.push("/sellt")
+    }
+  },
 };
 </script>
 
@@ -89,6 +93,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   align-content: center;
+  outline: none;
 }
 .count-box-bottom-contentr {
   display: flex;
@@ -119,5 +124,6 @@ export default {
   line-height: 0.36rem;
   margin-left: 1.48rem;
   margin-top: 0.6rem;
+  outline: none;
 }
 </style>

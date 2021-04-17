@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="illustrated">
-      <img :src="imgd" />
+      <img :src="imgd" @click="back"/>
       <p>分红图鉴</p>
     </div>
     <count class="count"></count>
@@ -18,7 +18,11 @@ export default {
     };
   },
   mounted() {},
-  methods: {},
+  methods: {
+    back(){
+      this.$router.go(-1)
+    }
+  },
   components: {
     count,
   },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="warehous">
-      <img :src="imgs" />
+      <img :src="imgs" @click="back" />
       <h4>我的礼物</h4>
       <p>
         已收集
@@ -21,7 +21,11 @@ export default {
     };
   },
   mounted() {},
-  methods: {},
+  methods: { 
+    back(){
+      this.$router.go(-1)
+    }
+  },
   components: {
     count,
   },

@@ -22,7 +22,7 @@
       </ul>
       <p @click="complet">
         筛选
-        <img :src="logo" />
+        <img :src="logo" style="height: 0.4rem; width: 0.4rem" />
       </p>
     </div>
     <div v-if="complete" class="scren">
@@ -214,7 +214,6 @@ export default {
     },
     complet() {
       this.complete = true;
-
     },
   },
 };
@@ -388,9 +387,9 @@ export default {
   line-height: 0.44rem;
   outline: none;
 }
-.scren{
+.scren {
   height: 13.24rem;
   width: 7.5rem;
-  background-color:rgba(85, 86,87,0.5);
+  background-color: rgba(85, 86, 87, 0.5);
 }
 </style>

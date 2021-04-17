@@ -69,6 +69,7 @@ export default {
   line-height: 0.36rem;
   padding-top: 0.6rem;
   margin-left: 0.36rem;
+  list-style-type: none;
 }
 .warehouse-box ul li img {
   width: 1.32rem;

@@ -6,9 +6,13 @@
           v-for="(individual, index) in msg"
           :key="index"
           @click="list(index)"
+          :style="{
+            color: individual.active ? 'rgba(43, 181, 254, 1)' : '#4C5980',
+            borderbottom: individual.active ? '#2BB5FE' : 'transparent',
+          }"
         >
-          {{ individual }}
-          <span></span>
+          {{ individual.name }}
+          <span v-if="individual.active"></span>
         </li>
       </ul>
       <div v-for="(item, index) in ranking" :key="index" class="ranking-box">
@@ -29,7 +33,14 @@ export default {
   data() {
     return {
       ranking: [],
-      msg: ["分红排行", "收益排行", "金币排行"],
+      msg: [
+        {
+          name: "分红排行",
+          active: true,
+        },
+        { name: "收益排行", active: false },
+        { name: "金币排行", active: false },
+      ],
     };
   },
   mounted() {
@@ -59,9 +70,13 @@ export default {
       });
   },
   methods: {
-    list(index){
-console.log(index)
-    }
+    list(e) {
+      this.msg.map((item) => {
+        item.active = false;
+      });
+      this.msg[e].active = true;
+      
+    },
   },
 };
 </script>
@@ -122,10 +137,13 @@ console.log(index)
   font-size: 0.28rem;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
-  color: #2bb5fe;
+  /* color: #2bb5fe; */
   line-height: 0.4rem;
   margin: 0.4rem 0 0 0.94rem;
+  padding-bottom: 10px;
+  /* border-bottom: 2px solid rgba(43, 181, 254, 1); */
 }
+
 .rankingBox ul li span {
   display: block;
   margin-left: 0.42rem;

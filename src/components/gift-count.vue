@@ -67,7 +67,7 @@ export default {
   },
   methods: {},
 };
-</script>
+</script >
 
 <style  scoped>
 .gift-top {

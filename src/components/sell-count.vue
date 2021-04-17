@@ -1,7 +1,7 @@
 <template>
   <div style="background-color: #9c9eb9">
     <div class="sales-top" :style="setBackground">
-      <img :src="retreat" />
+      <img :src="retreat" @click="back" />
       <p>确认出售订单</p>
       <div class="sales-box">
         <img :src="success" />
@@ -16,9 +16,15 @@
       </div>
       <div class="sales-information">
         <h3>订单信息</h3>
-        <ul style="border-bottom: 1px solid #000;padding-bottom: 0.4rem;width:5.76rem">
-          <li  v-for="(item, index) in orderNumber" :key="index">
-              <h2>{{ item.title }}</h2>
+        <ul
+          style="
+            border-bottom: 1px solid #000;
+            padding-bottom: 0.4rem;
+            width: 5.76rem;
+          "
+        >
+          <li v-for="(item, index) in orderNumber" :key="index">
+            <h2>{{ item.title }}</h2>
             <p>{{ item.content }}</p>
           </li>
         </ul>
@@ -68,6 +74,9 @@ export default {
       this.$emit("transmission");
       this.getTime();
     },
+    back() {
+      this.$router.go(-1);
+    },
   },
   props: {
     time: {
@@ -88,7 +97,6 @@ export default {
   height: 0.4rem;
   margin-left: 0.68rem;
   margin-top: 1.18rem;
-  
 }
 .sales-top p {
   display: initial;
@@ -211,6 +219,7 @@ export default {
 }
 .sales-information ul li {
   margin-top: 0.3rem;
+  display: flex;
 }
 .sales-information ul li h2 {
   font-size: 0.24rem;
