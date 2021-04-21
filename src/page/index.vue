@@ -1,7 +1,7 @@
 <template>
   <div>
     <count></count>
-    <but class="botton"></but>
+    <but class="botton" :list="code"></but>
   </div>
 </template>
 
@@ -12,7 +12,9 @@ import Count from "../components/index-count.vue";
 
 export default {
   data() {
-    return {};
+    return {
+      code:0
+    };
   },
   components: {
     but,

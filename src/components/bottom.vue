@@ -7,7 +7,7 @@
         :class="colorList[index]"
         @click="Jump(item.url, index)"
       >
-        <img :src="item.Image" />
+        <img :src="list==index?item.Image:item.spare" />
         <span>{{ item.page }}</span>
       </li>
     </ul>
@@ -23,28 +23,33 @@ export default {
           Image: require("../assets/xuabzhongshouye.png"),
           page: "首页",
           url: "/#",
+          active: false,
           spare: require("../assets/shouye.png"),
         },
         {
           Image: require("../assets/jiaoyi.png"),
           page: "交易",
           url: "/proportion",
+          active: false,
           spare: require("../assets/xuanzhongjiaoyi.png"),
         },
         {
           Image: require("../assets/tianjia.png"),
           url: "/history",
+           spare:  require("../assets/tianjia.png"),
         },
         {
           Image: require("../assets/fenhong.png"),
           page: "分红",
           url: "/income",
+          active: false,
           spare: require("../assets/xuanzhongfenghong.png"),
         },
         {
           Image: require("../assets/wode.png"),
           page: "我的",
           url: "/my",
+          active: false,
           spare: require("../assets/xuanzhongwode.png"),
         },
       ],
@@ -52,14 +57,16 @@ export default {
     };
   },
   methods: {
-    Jump(e, t) {
-      if (t != 2) {
-        this.msg[t].Image = this.msg[t].spare;
-      }
-
+    Jump(e, ) {
       this.$router.push(e);
     },
   },
+  props:{
+    list:{
+        type: Number,
+        default:0
+    }
+  }
 };
 </script>
 

@@ -1,8 +1,8 @@
 <template>
   <div class="box">
-    <top class="top" ></top>
+    <top class="top" :style="sty" @completer="srw"></top>
     <count class="count"></count>
-    <bottom class="bottom"></bottom>
+    <bottom class="bottom" :list="code"></bottom>
   </div>
 </template>
 
@@ -14,6 +14,8 @@ export default {
   data() {
     return {
       aeebs: false,
+      code:1,
+      sty:""
     };
   },
   mounted() {},
@@ -21,6 +23,9 @@ export default {
     aeeds() {
       this.aeebs = true;
     },
+    srw(){
+     this.sty="z-index: 1"
+    }
   },
   components: {
     top,

@@ -2,7 +2,7 @@
   <div class="box">
     <top></top>
     <count class="count"></count>
-    <bottom class="bottom"></bottom>
+    <bottom class="bottom" :list="code"></bottom>
   </div>
 </template>
 
@@ -14,7 +14,9 @@ import count from "../components/income-count";
 import bottom from "../components/bottom";
 export default {
   data() {
-    return {};
+    return {
+      code:3
+    };
   },
   mounted() {},
   methods: {},
