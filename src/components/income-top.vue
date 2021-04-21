@@ -54,12 +54,12 @@ export default {
   outline: none;
 }
 .income-sign {
-  font-size: 26px;
+  font-size: 0.52rem;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
   color: #ffffff;
-  line-height: 37px;
-  margin-top: 2px;
-  margin-left: 28px;
+  line-height: 0.74rem;
+  margin-top: 0.04rem;
+  margin-left: 0.56rem;
 }
 </style>

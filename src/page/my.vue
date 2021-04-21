@@ -11,7 +11,7 @@ import bottom from "../components/bottom";
 export default {
   data() {
     return {
-      but:false
+      but:true
     };
   },
   mounted() {},

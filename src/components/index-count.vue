@@ -7,7 +7,11 @@
           <p>￥322.22</p>
         </div>
         <ul>
-          <li v-for="(item, index) in list" :key="index" @click="back(item.url)">
+          <li
+            v-for="(item, index) in list"
+            :key="index"
+            @click="back(item.url)"
+          >
             <img :src="item.img" />
           </li>
         </ul>
@@ -18,6 +22,7 @@
           :key="index"
           :src="item.icon"
           :style="item.sty"
+          :class="item.cl"
         />
       </div>
       <div class="content-box">
@@ -61,7 +66,9 @@
               </span>
               <img :src="imgs" />
             </p>
-            <button :style="{ background: item.color }">{{ item.but }}</button>
+            <button :style="{ background: item.color }" @click="but(index)">
+              {{ item.but }}
+            </button>
           </div>
         </div>
       </div>
@@ -80,11 +87,10 @@ export default {
         },
         {
           img: require("../assets/paihang.png"),
-          url:"/Ranking"
+          url: "/Ranking",
         },
         {
           img: require("../assets/wanwan.png"),
-          
         },
       ],
       msg: [
@@ -114,6 +120,7 @@ export default {
           Image: require("../assets/shiwan.png"),
           page: "当日试玩",
           describe: "(1/3)",
+          number: "+500",
           but: "去完成",
           color: "linear-gradient(90deg, #32C5FF 0%, #2BB5FE 100%)",
         },
@@ -134,6 +141,7 @@ export default {
             width: "3.34rem",
             height: "4.46rem",
           },
+          cl: "balloon",
         },
         {
           icon: require("../assets/fengshan1.png"),
@@ -200,21 +208,24 @@ export default {
   },
   mounted() {},
   methods: {
-    back(e){
-      this.$router.push(e)
+    back(e) {
+      this.$router.push(e);
     },
-    clac(){
-       this.$router.push("/illustrated")
+    clac() {
+      this.$router.push("/illustrated");
     },
-    liwu(){
-      this.$router.push("/Warehouse")
-     
+    liwu() {
+      this.$router.push("/Warehouse");
     },
-    cle(){
-      this.$router.push("/envelopes")
-      
-    }
-
+    cle() {
+      this.$router.push("/envelopes");
+    },
+    but(e) {
+      if (e == 0) {
+        this.msg[e].but = "已完成";
+        this.msg[e].color = " #C9C9C9";
+      }
+    },
   },
 };
 </script>
@@ -357,7 +368,6 @@ export default {
 }
 .content-count {
   height: 6.5rem;
-
   margin-top: 1.04rem;
   position: relative;
 }
@@ -375,10 +385,11 @@ export default {
   display: flex;
 }
 .box-left img {
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-top: 0.08rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.28rem;
   margin-left: 0.22rem;
+  margin-right: 0.1rem;
 }
 .box-left p {
   font-size: 0.28rem;
@@ -389,27 +400,33 @@ export default {
   margin-top: 0.28rem;
 }
 .box-count {
-  margin-left: 0.3rem;
+  margin-left: 0.6rem;
   position: relative;
 }
 .guang {
   position: absolute;
   top: 0.36rem;
   left: 1.88rem;
+  animation-name: example;
+  animation-duration: 2s;
+  animation: example 1s infinite;
 }
 .shou {
   position: absolute;
   top: 0.56rem;
   left: 2.2rem;
+
+  animation: atuyr 1s infinite;
 }
 .box-right {
   display: flex;
   margin-left: 0.2rem;
 }
 .box-right img {
-  width: 0.8rem;
-  height: 0.8rem;
-  margin-top: 0.08rem;
+  margin-left: 0.3rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: 0.28rem;
 }
 .box-right p {
   font-size: 0.28rem;
@@ -418,5 +435,47 @@ export default {
   color: #4c5980;
   line-height: 0.4rem;
   margin-top: 0.28rem;
+}
+.balloon {
+  animation: tyuio 1s infinite;
+}
+@keyframes example {
+  0% {
+    width: 46px;
+    height: 46px;
+  }
+  50% {
+    width: 50px;
+    height: 50px;
+  }
+  100% {
+    width: 46px;
+    height: 46px;
+  }
+}
+@keyframes atuyr {
+  0% {
+    width: 52px;
+    height: 52px;
+  }
+  50% {
+    width: 56px;
+    height: 56px;
+  }
+  100% {
+    width: 52px;
+    height: 52px;
+  }
+}
+@keyframes tyuio {
+  0% {
+    margin-top: 31px;
+  }
+  50% {
+    margin-top: 40px;
+  }
+  100% {
+    margin-top: 31px;
+  }
 }
 </style>

@@ -4,20 +4,22 @@
       <img :src="imgs" />
     </div>
     <p class="item">这里是sloganXXXXXXXXXXXXXX</p>
-    <ul class="text-box">
-      <li class="text-box-count">
-        <input type="text" v-model="password_one" />
-      </li>
-      <li class="text-box-count">
-        <input type="text" v-model="password_two" />
-      </li>
-      <li class="text-box-count">
-        <input type="text" v-model="password_three" />
-      </li>
-      <li class="text-box-count">
-        <input type="text" v-model="password_four" />
-      </li>
-    </ul>
+    <div class="vft-count">
+      <div class="vft-list">
+        {{ this.list[0] }}
+      </div>
+      <div class="vft-list">
+        {{ this.list[1] }}
+      </div>
+      <div class="vft-list">
+        {{ this.list[2] }}
+      </div>
+      <div class="vft-list">
+        {{ this.list[3] }}
+      </div>
+      <input class="inpt" type="text" maxlength="4" @input="inputVal" />
+    </div>
+
     <button @click="add()">{{ Resend }}</button>
   </div>
 </template>
@@ -28,27 +30,39 @@ export default {
     return {
       imgs: require("../assets/liwu.png"),
       eliminate: require("../assets/qinchu.png"),
-      password_one: "",
-      password_two: "",
-      password_three: "",
-      password_four: "",
       Resend: "重新发送",
-      code:''
+      code: "",
+      list: [],
     };
   },
   mounted() {},
   methods: {
+    inputVal(e) {
+      // console.log(e.target.value);
+      // console.log(e.target.value.split(""));
+      let val = e.target.value;
+      let res = /^[0-9]*$/;
+      if (res.test(val) == true) {
+        this.list = e.target.value.split("");
+        console.log(this.list);
+        if(this.list.length>=4){
+          this.arr()
+        }
+      } else {
+        alert("验证码不能输入字母");
+      }
+    },
     add() {
       let thet = this;
       let nub = 5;
       let countDown = setInterval(function () {
         nub--;
         if (nub != 0) {
-       thet.Resend ='('+nub+"秒"+')'
+          thet.Resend = "(" + nub + "秒" + ")";
         } else {
-          clearInterval(countDown); 
+          clearInterval(countDown);
           let code = "";
-          //设置长度，这里看需求，我这里设置了4
+          //设置长度这里设置了4
           let codeLength = 4;
           //设置随机字符
           let random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
@@ -62,43 +76,33 @@ export default {
           //将拼接好的字符串赋值给展示的code
           this.code = code;
           alert("验证码为" + this.code);
-          thet.$emit("content",this.code)
-          thet.Resend="重新发送"
+          thet.$emit("content", this.code);
+          thet.Resend = "重新发送";
         }
       }, 1000);
     },
     arr() {
-      let array = [
-        this.password_one,
-        this.password_two,
-        this.password_three,
-        this.password_four,
-      ];
-      console.log(array);
-      if (array == this.password) {
+      // console.log(this.password.join()) 
+      // this.list.join()
+      if ( this.password.join() == this.list.join()) {
         alert("验证码输入正确");
+        this.list=""
+        this.$router.push("/my")
       } else {
         alert("验证码错误");
-        this.password_one = "";
-        this.password_two = "";
-        this.password_three = "";
-        this.password_four = "";
       }
     },
+    // },
+   
   },
-  props: {
-    password: {
-      type: Array,
+   props: {
+      password: {
+        type: Array,
+        default: function(){
+          return[];
+        }
+      },
     },
-  },
-  watch: {
-    password_four(val, oldVal) {
-      if (val != "") {
-        this.arr();
-      }
-      console.log(oldVal);
-    },
-  },
 };
 </script>
 
@@ -125,33 +129,37 @@ export default {
   margin-left: 1.12rem;
   margin-top: 0.44rem;
 }
-.text-box {
-  width: 5.66rem;
-  height: 1.2rem;
-  margin: 1.2rem 0 0 0.58rem;
+.vft-count {
   display: flex;
+  margin-top: 1.2rem;
+  margin-left: 0.58rem;
+  position: relative;
 }
-.text-box li{
-    list-style-type: none;
-    display: flex;
+.inpt {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
-.text-box-count {
+.vft-list {
   width: 1.16rem;
   height: 1.2rem;
   background: #ffffff;
-  box-shadow: 0px 0.2rem 0.4rem 0rem rgba(64, 117, 205, 0.08);
+  box-shadow: 0rem 0.2rem 0.4rem 0rem rgba(64, 117, 205, 0.08);
   border-radius: 0.32rem;
   margin-left: 0.34rem;
+  font-size: 0.6rem;
+  text-align: center;
+  line-height: 1.2rem;
 }
-.text-box-count input {
-  width: 0.36rem;
-  height: 1.2rem;
-  border-radius: 0.32rem;
+.vft-list input {
+  background-color: transparent;
   outline: none;
-  padding-left: 20px;
-  font-size: 20px;
-  font-weight: 600;
-  color: aqua;
+  width: 1.16rem;
+  height: 1.2rem;
+  padding-left: 0.4rem;
 }
 .vft button {
   margin-left: 3rem;

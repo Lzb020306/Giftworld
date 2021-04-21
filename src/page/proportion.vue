@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <top class="top"></top>
+    <top class="top" ></top>
     <count class="count"></count>
     <bottom class="bottom"></bottom>
   </div>
@@ -45,10 +45,16 @@ export default {
   position: fixed;
   top: 3rem;
   left: 0.56rem;
+  
 }
 .bottom {
+   left: 0;
+  width: 100%;
+  height: 80px;
+  background: #ffffff;
+  box-shadow: 0px -5px 30px 0px rgba(45, 49, 66, 0.1);
+  border-radius: 20px 20px 0px 0px;
   position: fixed;
   bottom: 0;
-  height: 1.6rem;
 }
 </style>

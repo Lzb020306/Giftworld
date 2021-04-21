@@ -101,8 +101,8 @@ export default {
 
 <style scoped>
 .income-Statistics {
-  width: 339px;
-  height: 137px;
+  width: 6.78rem;
+  height: 2.74rem;
   background: #ffffff;
   box-shadow: 0px 20px 20px 0px rgba(64, 117, 205, 0.08);
   border-radius: 20px;
@@ -130,8 +130,8 @@ export default {
   font-weight: 500;
   color: #2d3142;
   line-height: 0.44rem;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 0.4rem;
+  margin-top: 0.4rem;
 }
 .income-Statistics-top img {
   width: 0.64rem;
@@ -187,8 +187,8 @@ export default {
   color: #ff1212;
   line-height: 0.36rem;
   position: absolute;
-  top: 12px;
-  left: 106px;
+  top: 0.24rem;
+  left: 2.12rem;
 }
 .income-Cumulative-total h1 {
   font-size: 0.26rem;
@@ -255,10 +255,10 @@ export default {
   margin-left: 0.4rem;
 }
 .income-Cumulative-progressBar div {
-  width: 30px;
-  height: 10px;
+  width: 0.6rem;
+  height: 0.2rem;
   background: #2bb5fe;
-  border-radius: 6px;
+  border-radius: 0.12rem;
 }
 .income-Cumulative-introduce {
   width: 5.9rem;
@@ -296,7 +296,7 @@ export default {
 }
 .income-total ul li {
   width: 2rem;
-  margin-left: 2px;
+  margin-left: 0.04rem;
   display: flex;
   flex-direction: column;
   align-items: center; /*由于flex-direction: column，因此align-items代表的是水平方向*/
@@ -311,11 +311,11 @@ export default {
   text-align: center;
 }
 .income-total ul li span {
-  font-size: 13px;
+  font-size: 0.26rem;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #999999;
-  line-height: 18px;
+  line-height: 0.36rem;
 }
 .income-total button {
   background-color: #2bb5fe;
@@ -330,12 +330,12 @@ export default {
   line-height: 0.34rem;
   outline: none;
   position: absolute;
-  top: 52px;
-  left: 68px;
+  top: 1.04rem;
+  left: 1.36rem;
 }
 .income-total button img {
-  width: 10px;
-  height: 10px;
+  width: 0.2rem;
+  height: 0.2rem;
   /* margin: 5px 5px 5px 8px; */
 }
 .income-people {
@@ -349,8 +349,8 @@ export default {
 }
 .income-people-top {
   display: flex;
-  margin-top: 24px;
-  margin-left: 20px;
+  margin-top: 0.48rem;
+  margin-left: 0.4rem;
 }
 .income-people-top h2 {
   font-size: 0.32rem;
@@ -360,11 +360,11 @@ export default {
   line-height: 0.44rem;
 }
 .income-people-top p{
-  font-size: 12px;
+  font-size: 0.24rem;
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #666666;
-  line-height: 17px;
+  line-height: 0.34rem;
   margin-top: 0.06rem;
   margin-left: 3.26rem;
   display: flex;
@@ -380,7 +380,7 @@ export default {
 }
 .income-people-count img{
   width: 0.76rem;
-  margin-top: 2px;
+  margin-top: 0.04rem;
   height: 0.76rem;
 }
 .income-people-count div{

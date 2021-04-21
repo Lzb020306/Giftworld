@@ -8,19 +8,20 @@ import land from "../components/land-count";
 export default {
   data() {
     return {
-      code: "",
+      code:[],
     };
   },
 
   mounted() {
     let str = this.$route.query.place;
+    if(!str) return
     let arr = str.split("");
     this.code = arr;
   },
   methods: {
     getcode(e){
       console.log(e)
-      this.code=e
+      this.code=e.split("")
     }
   },
   components: {

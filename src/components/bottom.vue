@@ -5,7 +5,7 @@
         v-for="(item, index) in this.msg"
         :key="index"
         :class="colorList[index]"
-        @click="Jump(item.url)"
+        @click="Jump(item.url, index)"
       >
         <img :src="item.Image" />
         <span>{{ item.page }}</span>
@@ -20,14 +20,16 @@ export default {
     return {
       msg: [
         {
-          Image: require("../assets/shouye.png"),
+          Image: require("../assets/xuabzhongshouye.png"),
           page: "首页",
           url: "/#",
+          spare: require("../assets/shouye.png"),
         },
         {
           Image: require("../assets/jiaoyi.png"),
           page: "交易",
           url: "/proportion",
+          spare: require("../assets/xuanzhongjiaoyi.png"),
         },
         {
           Image: require("../assets/tianjia.png"),
@@ -37,18 +39,24 @@ export default {
           Image: require("../assets/fenhong.png"),
           page: "分红",
           url: "/income",
+          spare: require("../assets/xuanzhongfenghong.png"),
         },
         {
           Image: require("../assets/wode.png"),
           page: "我的",
           url: "/my",
+          spare: require("../assets/xuanzhongwode.png"),
         },
       ],
       colorList: ["color1", "color2", "color3", "color4", "color5"],
     };
   },
   methods: {
-    Jump(e) {
+    Jump(e, t) {
+      if (t != 2) {
+        this.msg[t].Image = this.msg[t].spare;
+      }
+
       this.$router.push(e);
     },
   },

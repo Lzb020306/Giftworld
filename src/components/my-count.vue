@@ -54,7 +54,7 @@
       </ul>
     </div>
     <div class="myWrite" v-if="Vanish">
-      <div class="write">
+      <div class="write" @click="cancel">
         <div class="write-box">
           <img :src="write" />
         </div>
@@ -146,8 +146,12 @@ export default {
       this.$router.push("/Invitationcode");
     },
     land(){
-      this.$router.push("/land")
+      this.$router.push("/verification")
+    },
+    cancel(){
+      this.Vanish = false;
     }
+
   },
 };
 </script>
@@ -206,7 +210,7 @@ export default {
   width: 0.72rem;
   height: 0.32rem;
   background: #2bb5fe;
-  border-radius: 4px;
+  border-radius: 0.08rem;
   font-size: 0.2rem;
   font-family: PingFangSC-Medium, PingFang SC;
   font-weight: 500;
@@ -265,17 +269,17 @@ display: flex;
 .myList ul li p img {
   margin:  0;
   margin-top: 0.28rem;
-  margin-bottom: 16px;
+  margin-bottom: 0.32rem;
 }
 .myDalancePanel-top {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  padding: 10px 16px 0 20px;
+  padding: 0.2rem 0.32rem 0 0.4rem;
 }
 .myDalancePanel-bottom {
   display: flex;
-  padding: 10px 0 0 20px;
+  padding: 0.2rem 0 0 0.4rem;
   outline: none;
 }
 .myDalancePanel-top p {
@@ -284,7 +288,7 @@ display: flex;
   flex-flow: column;
 }
 .myDalancePanel-bottom p {
-  width: 30px;
+  width: 0.6rem;
 }
 .myDalancePanel-top p i,
 .myDalancePanel-bottom p i {

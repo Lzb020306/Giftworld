@@ -211,6 +211,7 @@ export default {
     },
     completer() {
       this.complete = false;
+      this.$emit("completer" ,true)
     },
     complet() {
       this.complete = true;
@@ -274,6 +275,8 @@ export default {
   height: 0.6rem;
   margin-left: 0.44rem;
   margin-top: 0.2rem;
+list-style-type: none;
+
 }
 .top-count-list-box li h1 {
   flex: 100%;
@@ -313,6 +316,8 @@ export default {
 .screen-top ul li {
   flex: 20%;
   margin-top: 0.28rem;
+    list-style-type: none;
+
 }
 .screen-top ul li p {
   width: 1.24rem;
@@ -348,6 +353,8 @@ export default {
 }
 .screen-count ul li {
   margin-left: 0.16rem;
+    list-style-type: none;
+
 }
 .screen-count ul li p {
   width: 2.12rem;

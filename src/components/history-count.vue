@@ -1,24 +1,25 @@
 <template>
   <div class="history">
     <div class="history-top">
-      <img :src="retreat" />
+      <img :src="retreat" @click="back"/>
       <p>发布历史</p>
     </div>
     <ul class="history-column">
       <li v-for="(item, index) in Navigation" :key="index">
-        <p>{{ item }}</p>
+        {{ item.name }}
+        <span v-if="Navigation.active"></span>
       </li>
     </ul>
-    <div class="history-conter" v-for="(item ,index) in ranking" :key="index">
+    <div class="history-conter" v-for="(item, index) in ranking" :key="index">
       <div class="history-conter-top">
-        <h2>{{item.name}}</h2>
-        <p>{{item.state}}</p>
+        <h2>{{ item.name }}</h2>
+        <p>{{ item.state }}</p>
       </div>
       <div class="history-conter-middle">
         <img :src="item.picture" />
         <p>
-          <span>下架倒计时:{{item.hour}}</span>
-          <i>售价：{{item.Price}}</i>
+          <span>下架倒计时:{{ item.hour }}</span>
+          <i>售价：{{ item.Price }}</i>
         </p>
       </div>
     </div>
@@ -30,18 +31,23 @@ export default {
   data() {
     return {
       retreat: require("../assets/heifanhui.png"),
-      Navigation: ["全部", "待审核", "发布成功", "交易成功"],
-      ranking:[]
+      Navigation: [
+        { name: "全部", active: true },
+        { name: "待审核", active: false },
+        { name: "发布成功", active: false },
+        { name: "交易成功", active: false },
+      ],
+      ranking: [],
     };
   },
   mounted() {
-       this.$axios
+    this.$axios
       .get("./history.json")
       .then((response) => {
         console.log(response.data);
         this.ranking = response.data;
         this.ranking.forEach((i) => {
-            i.picture = require("@/assets/" + i.picture);
+          i.picture = require("@/assets/" + i.picture);
         });
       })
       .catch((error) => {
@@ -49,13 +55,17 @@ export default {
         alert("网络错误，不能访问");
       });
   },
-  methods: {},
+  methods: {
+    back(){
+      this.$router.go(-1)
+    }
+  },
 };
 </script>
 
 <style  scoped>
 .history {
-    height: 19.76rem;
+  height: 19.76rem;
   background-color: #e9eef7;
 }
 .history-top {
@@ -66,6 +76,8 @@ export default {
 .history-top img {
   margin-top: 0.3rem;
   margin-left: 0.68rem;
+  width: 0.4rem;
+  height: 0.4rem;
 }
 .history-top p {
   font-size: 0.36rem;
@@ -83,9 +95,11 @@ export default {
   background-color: #fff;
 }
 .history-column li {
-  margin-left: 23px;
-}
-.history-column li p {
+  margin-top: 0.2rem;
+  margin-left: 0.46rem;
+  list-style-type: none;
+  padding-bottom: 10px;
+  display: inline;
   width: 1.26rem;
   height: 0.4rem;
   font-size: 0.28rem;
@@ -94,6 +108,15 @@ export default {
   color: #2bb5fe;
   line-height: 0.4rem;
   text-align: center;
+}
+.history-column li span {
+  display: block;
+  margin-left: 0.42rem;
+  width: 0.66rem;
+  height: 0.06rem;
+  background: #2bb5fe;
+  border-radius: 0.06rem;
+  margin-top: 0.14rem;
 }
 .history-conter {
   width: 6.38rem;
@@ -152,7 +175,7 @@ export default {
   margin-left: 0.2rem;
 }
 .history-conter-middle p i {
-    display: block;
+  display: block;
   width: 1.5rem;
   height: 0.34rem;
   font-size: 0.24rem;

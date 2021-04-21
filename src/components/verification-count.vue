@@ -139,6 +139,10 @@ export default {
   margin-left: 1rem;
   outline: none;
 }
+.text-box img{
+  width: 0.4rem;
+  height: 0.4rem;
+}
 .verification {
   width: 5rem;
   height: 1.12rem;
