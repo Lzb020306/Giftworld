@@ -73,6 +73,23 @@
         </div>
       </div>
     </div>
+    <div class="cover" v-if="cover">
+      <div class="cover-box">
+        <h2>金币奖励</h2>
+        <img :src="imgs" />
+        <p>恭喜获得 <span>100</span> 金币</p>
+      </div>
+      <img
+        :src="Image"
+        style="
+          width: 0.8rem;
+          height: 0.8rem;
+          margin-top: 0.4rem;
+          margin-left: 3.36rem;
+        "
+        @click="blast"
+      />
+    </div>
   </div>
 </template>
 
@@ -80,7 +97,9 @@
 export default {
   data() {
     return {
+      cover:false,
       imgs: require("../assets/jinbi.png"),
+      Image: require("../assets/daguanbi.png"),
       list: [
         {
           img: require("../assets/hongbaoyu.png"),
@@ -224,12 +243,61 @@ export default {
       if (e == 0) {
         this.msg[e].but = "已完成";
         this.msg[e].color = " #C9C9C9";
+        this.cover=true
       }
     },
+    blast(){
+      this.cover=false
+    }
   },
 };
 </script>
 <style scoped>
+.cover {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 7.5rem;
+  height: 16.24rem;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+}
+.cover-box {
+  width: 5.5rem;
+  height: 5.7rem;
+  background: #ffffff;
+  border-radius: 0.4rem;
+  margin-top: 4.52rem;
+  margin-left: 1rem;
+  overflow: hidden;
+}
+.cover-box h2 {
+  font-size: 0.44rem;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #4c5980;
+  line-height: 0.6rem;
+  margin-left: 1.84rem;
+  margin-top: 0.38rem;
+}
+.cover-box img {
+  width: 1.6rem;
+  height: 1.6rem;
+  margin-left: 1.96rem;
+  margin-top: 0.6rem;
+  border: 1px dashed #000;
+}
+.cover-box p {
+  font-size: 0.28rem;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #4c5980;
+  line-height: 0.48rem;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+.cover-box p span {
+  color: red;
+}
 .content {
   margin: 0;
   padding: 0;

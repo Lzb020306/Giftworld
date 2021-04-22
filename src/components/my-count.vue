@@ -2,7 +2,7 @@
 <template>
   <div>
     <div class="myTop">
-      <img :src="imgs" @click="land"/>
+      <img :src="imgs" @click="land" />
       <div class="myTopCount">
         <h2>游客007</h2>
         <p>
@@ -23,7 +23,7 @@
           <i>我的余额</i>
           <span>0</span>
         </p>
-        <button>提现</button>
+        <button @click="extract">提现</button>
       </div>
       <div class="myDalancePanel-bottom">
         <p>
@@ -53,8 +53,8 @@
         </li>
       </ul>
     </div>
-    <div class="myWrite" v-if="Vanish">
-      <div class="write" @click="cancel">
+    <div class="myWrite" v-if="Vanish" @click="cancel">
+      <div class="write">
         <div class="write-box">
           <img :src="write" />
         </div>
@@ -135,7 +135,7 @@ export default {
     navto(e) {
       if (e == "") {
         this.Vanish = true;
-      }else{
+      } else {
         this.$router.push(e);
       }
     },
@@ -145,13 +145,15 @@ export default {
     erweima() {
       this.$router.push("/Invitationcode");
     },
-    land(){
-      this.$router.push("/verification")
+    land() {
+      this.$router.push("/verification");
     },
-    cancel(){
+    cancel() {
       this.Vanish = false;
-    }
-
+    },
+    extract() {
+      this.$router.push("/Withdrawal")
+    },
   },
 };
 </script>
@@ -263,11 +265,11 @@ export default {
   margin-left: 0.68rem;
 }
 .myList ul li p {
-display: flex;
+  display: flex;
   margin-left: 3.26rem;
 }
 .myList ul li p img {
-  margin:  0;
+  margin: 0;
   margin-top: 0.28rem;
   margin-bottom: 0.32rem;
 }

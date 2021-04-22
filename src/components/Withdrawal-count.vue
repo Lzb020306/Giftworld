@@ -1,7 +1,7 @@
 <template>
   <div class="Withdrawal">
     <div class="Withdrawal-top">
-      <img :src="imgs" />
+      <img :src="imgs" @click="back"/>
       <p>提现</p>
       <button>明细</button>
     </div>
@@ -124,6 +124,9 @@ export default {
     },
     feell(){
       this.Popup=false
+    },
+    back(){
+      this.$router.go(-1)
     }
   },
   components: {},
@@ -132,16 +135,16 @@ export default {
 
 <style scoped>
 .Withdrawal {
-  width: 375px;
-  height: 812px;
+  width: 7.5rem;
+  height: 16.24rem;
   background: #2bb5fe;
 }
 .Withdrawal-top {
   display: flex;
 }
 .Withdrawal-top img {
-  width: 20px;
-  height: 20px;
+  width: 0.4rem;
+  height: 0.4rem;
   margin-top: 0.3rem;
   margin-left: 0.68rem;
 }
@@ -301,6 +304,8 @@ export default {
   border-radius: 0.2rem;
   background: #f4f4f4;
   color: #000;
+  list-style-type: none;
+  display: flex;
 }
 .box-price ul li h3 {
   font-size: 0.48rem;
@@ -309,6 +314,7 @@ export default {
   /* color: #ffffff; */
   line-height: 0.58rem;
   margin-left: 0.5rem;
+  margin-top: 0.26rem;
 }
 .box-price ul li p {
   font-size: 0.28rem;
@@ -317,6 +323,7 @@ export default {
   /* color: #ffffff; */
   margin-left: 0.08rem;
   margin-top: 0.16rem;
+  margin-top: 0.42rem;
 }
 .box-careful h2 {
   font-size: 0.36rem;
