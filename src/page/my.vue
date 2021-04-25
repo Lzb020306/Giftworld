@@ -1,6 +1,6 @@
 <template>
   <div>
-    <my></my>
+    <my :password="list" :passwort="liste"></my>
     <bottom class="bottom" v-if="but" :list="code"></bottom>
   </div>
 </template>
@@ -12,10 +12,23 @@ export default {
   data() {
     return {
       but:true,
-      code:4
+      code:4,
+      list:50.56,
+      liste:1000
     };
   },
-  mounted() {},
+  mounted() {
+    let src = this.$route.query.diamonds;
+    if(!src) return
+    let aee = parseFloat(src);
+    this.liste = aee;
+  },
+  created(){
+    let str = this.$route.query.place;
+    if(!str) return
+    let arr = parseFloat(str);
+    this.list = arr;
+  },
   methods: {},
   components: {
     my,

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="wallet-top">
-      <img :src="imgs" />
+      <img :src="imgs" style="width: 0.4rem; height: 0.4rem" @click="back"/>
       <p>我的钱包</p>
     </div>
     <div class="wallet-choice">
@@ -27,7 +27,7 @@
         </div>
         <div class="wallet-lists">
           <p>钻石余额</p>
-          <h1>1000</h1>
+          <h1>{{list}}</h1>
           <button @click="see">兑换余额</button>
           <div class="wallet-inventory">
             <div class="inventory-left">
@@ -108,11 +108,12 @@
         </ul>
       </div>
     </div>
+    <p class="detailed">系统只保留最近7天的收支明细</p>
     <div class="cover" v-if="covere">
       <div class="exchange" :style="setBackground">
         <div class="exchange-top">
           <p>兑换成功!</p>
-          <img :src="cover"  @click="destroy">
+          <img :src="cover" @click="destroy" />
         </div>
         <div class="exchange-count">
           <div class="count-box" :style="count">
@@ -131,7 +132,8 @@
 export default {
   data() {
     return {
-      covere:false,
+      list:1000,
+      covere: false,
       Counting: false,
       currency: true,
       qiu: require("../assets/qiu.png"),
@@ -205,18 +207,30 @@ export default {
         (this.currency = false), (this.Counting = true);
       }
     },
-    see(){
-      this.covere=true
+    see() {
+      this.covere = true;
+      this.list=0
     },
-    destroy(){
-      this.covere=false
-
+    destroy() {
+      this.covere = false;
+    },
+    back(){
+      this.$router.push(`/my?diamonds=${this.list}`)
     }
   },
 };
 </script>
 
 <style  scoped>
+.detailed {
+  font-size: 0.24rem;
+  font-family: PingFangTC-Light, PingFangTC;
+  font-weight: 300;
+  color: #4c5980;
+  line-height: 0.34rem;
+  margin-top: 1.2rem;
+  margin-left: 2.1rem;
+}
 .wallet-top {
   display: flex;
 }

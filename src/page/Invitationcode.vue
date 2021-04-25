@@ -1,7 +1,8 @@
 <template>
   <div style="background: RGBA(244, 246, 250, 1); height: 16.24rem">
     <div class="Invitationcode">
-      <img :src="img" @click="back" />
+      <img :src="img" @click="back" style="width: 0.4rem;
+  height: 0.4rem;" />
       <p>我的二维码</p>
     </div>
     <div class="Invitationcode-count">

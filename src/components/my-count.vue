@@ -19,20 +19,20 @@
     </div>
     <div class="myDalancePanel" :style="setBackground">
       <div class="myDalancePanel-top">
-        <p>
+        <p @click="wallet">
           <i>我的余额</i>
-          <span>0</span>
+          <span>{{password}}</span>
         </p>
         <button @click="extract">提现</button>
       </div>
       <div class="myDalancePanel-bottom">
         <p>
           <i>金币</i>
-          <span>0</span>
+          <span>1000</span>
         </p>
         <p class="Diamonds">
           <i>钻石</i>
-          <span>0</span>
+          <span>{{passwort}}</span>
         </p>
         <button>兑换现金</button>
       </div>
@@ -150,11 +150,25 @@ export default {
     },
     cancel() {
       this.Vanish = false;
+      console.log(this.passwort)
     },
     extract() {
-      this.$router.push("/Withdrawal")
+      this.$router.push(`/Withdrawal?place=${this.password}`)
     },
+    wallet(){
+      this.$router.push("/wallet")
+    }
   },
+  props:{
+     password: {
+        type: Number,
+        default:50.56
+      },
+      passwort:{
+        type: Number,
+        default:1000
+      }
+  }
 };
 </script>
 

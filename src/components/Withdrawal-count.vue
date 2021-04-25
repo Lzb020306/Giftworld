@@ -1,7 +1,7 @@
 <template>
   <div class="Withdrawal">
     <div class="Withdrawal-top">
-      <img :src="imgs" @click="back"/>
+      <img :src="imgs" @click="back" />
       <p>提现</p>
       <button>明细</button>
     </div>
@@ -9,7 +9,7 @@
       <p>我的余额</p>
       <div class="balance-count">
         <img :src="money" />
-        <h1>50.56</h1>
+        <h1>{{ code }}</h1>
       </div>
     </div>
     <div class="Withdrawal-box">
@@ -70,13 +70,15 @@
 export default {
   data() {
     return {
-      Popup:false,
+      Popup: false,
       success: require("../assets/wancheng.png"),
       imgs: require("../assets/fanhui.png"),
       money: require("../assets/rmb.png"),
       WeChat: require("../assets/weixin.png"),
       Photo: require("../assets/gougou.png"),
       turn: require("../assets/daohang.png"),
+      list: "",
+      code: "50.56",
       UnitPrice: [
         {
           Price: "20",
@@ -118,18 +120,33 @@ export default {
         item.active = false;
       });
       this.UnitPrice[e].active = true;
+      if (this.UnitPrice[e].active == true) {
+        this.list = this.UnitPrice[e].Price;
+      }
     },
-    feel(){
-      this.Popup=true
+    feel() {
+      if (this.list >= this.code) {
+        alert("提现余额不得超过我的余额");
+      } else {
+        this.code -= this.list;
+        this.code = this.code.toFixed(2);
+        this.Popup = true;
+      }
     },
-    feell(){
-      this.Popup=false
+    feell() {
+      this.Popup = false;
     },
-    back(){
-      this.$router.go(-1)
-    }
+    back() {
+      this.$router.push(`/my?place=${this.code}`)
+    },
   },
   components: {},
+  props:{
+    lise:{
+        type: Number,
+        default:50.56
+    }
+  }
 };
 </script>
 

@@ -27,6 +27,7 @@ export default {
 
 <style  scoped>
 .box{
+    height: 16.24rem;
     overflow: hidden;
     background-color: #F4F6FA;
 }    

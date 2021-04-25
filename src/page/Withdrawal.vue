@@ -1,6 +1,6 @@
 <template>
     <div>
-        <count></count>
+        <count :lise="code"></count>
     </div>
 </template>
  
@@ -9,11 +9,14 @@ import count from "../components/Withdrawal-count";
 export default {
   data() {
     return {
-      code: "",
+      code: 0,
     };
   },
   mounted() {
-  
+   let str = this.$route.query.place;
+    if(!str) return
+    let arr = parseFloat(str);
+    this.code = arr;
   },
   methods: {
     

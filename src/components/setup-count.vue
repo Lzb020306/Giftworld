@@ -87,6 +87,8 @@ export default {
   display: flex;
 }
 .serup img {
+  width: 0.4rem;
+  height: 0.4rem;
   margin-top: 0.3rem;
   margin-left: 0.68rem;
 }

@@ -1,7 +1,8 @@
 <template>
   <div class="count">
     <div class="invitation-top">
-      <img :src="imgs" @click="back" />
+      <img :src="imgs" @click="back" style="width: 0.4rem;
+  height: 0.4rem;"/>
       <p>我的邀请码</p>
       <button @click="pupil">我的师傅</button>
     </div>

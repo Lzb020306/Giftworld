@@ -211,10 +211,11 @@ export default {
     },
     completer() {
       this.complete = false;
-      this.$emit("completer" ,true)
+     this.$emit("comple" ,true)
     },
     complet() {
       this.complete = true;
+       this.$emit("completer" ,true)
     },
   },
 };

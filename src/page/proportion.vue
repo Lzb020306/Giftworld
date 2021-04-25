@@ -1,6 +1,6 @@
 <template>
   <div class="box">
-    <top class="top" :style="sty" @completer="srw"></top>
+    <top class="top" :style="sty" @completer="srw" @comple="back"></top>
     <count class="count"></count>
     <bottom class="bottom" :list="code"></bottom>
   </div>
@@ -25,6 +25,9 @@ export default {
     },
     srw(){
      this.sty="z-index: 1"
+    },
+    back(){
+       this.sty="z-index: 0"
     }
   },
   components: {
